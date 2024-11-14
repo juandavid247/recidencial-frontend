@@ -523,7 +523,7 @@ const ConfirmActionModal = ({
         >
           <div
             className={`px-4 pb-4 pt-5 sm:p-6 sm:pb-4 ${
-              darkMode ? "bg-slate-850" : "bg-white"
+              darkMode ? "bg-slate-700" : "bg-white"
             }`}
           >
             <div className="sm:flex sm:items-start">
@@ -570,7 +570,7 @@ const ConfirmActionModal = ({
           </div>
           <div
             className={`bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 ${
-              darkMode ? "bg-gray-900" : "bg-gray-50"
+              darkMode ? "bg-gray-800" : "bg-gray-50"
             }`}
           >
             <button

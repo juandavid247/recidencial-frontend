@@ -51,13 +51,15 @@ const Sidebar = ({ sidebarOpen, darkMode }) => {
             : "bg-white text-gray-700 ring-gray-200"
         } h-full`}
       >
-        <div className="flex h-16 shrink-0 items-center justify-between">
+        <div className="flex h-16 shrink-0 items-center justify-evenly">
           <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
+            className="h-8 w-auto animate-pulse  "
+            src="../../src/assets/react.svg"
+            alt="Security"
           />
-        </div>
+      <h2 className={`${isExpanded ? "block" : "hidden"} animate-pulse text-center text-[22px] font-extrabold ${darkMode ? "text-gray-300 "
+            : "text-gray-400"}`}>Security </h2>
+      </div>
         <nav className="flex flex-1 flex-col">
           <ul role="list" className="flex flex-1 flex-col gap-y-7">
             <li>

@@ -314,7 +314,7 @@ const EditApartmentModal = ({
       <DialogBackdrop
         transition
         className={`fixed inset-0 ${
-          darkMode ? "bg-gray-900 bg-opacity-75" : "bg-gray-500 bg-opacity-75"
+          darkMode ? "bg-gray-900 bg-opacity-75" : "bg-gray-100 bg-opacity-75"
         } transition-opacity`}
       />
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -322,7 +322,7 @@ const EditApartmentModal = ({
           <DialogPanel
             transition
             className={`relative transform overflow-hidden rounded-lg ${
-              darkMode ? "bg-gray-900" : "bg-white"
+              darkMode ? "bg-gray-800" : "bg-white"
             } text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg`}
           >
             <div className="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
@@ -353,7 +353,7 @@ const EditApartmentModal = ({
                         value={formData.apartment_number}
                         onChange={handleChange}
                         className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm ${
-                          darkMode ? "bg-gray-900 text-gray-100" : "bg-white"
+                          darkMode ? "bg-gray-800 text-gray-100" : "bg-white"
                         }`}
                       />
                     </div>
@@ -373,7 +373,7 @@ const EditApartmentModal = ({
                         value={formData.floor}
                         onChange={handleChange}
                         className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm ${
-                          darkMode ? "bg-gray-900 text-gray-100" : "bg-white"
+                          darkMode ? "bg-gray-800 text-gray-100" : "bg-white"
                         }`}
                       />
                     </div>
@@ -393,7 +393,7 @@ const EditApartmentModal = ({
                         value={formData.section}
                         onChange={handleChange}
                         className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm ${
-                          darkMode ? "bg-gray-900 text-gray-100" : "bg-white"
+                          darkMode ? "bg-gray-800 text-gray-100" : "bg-white"
                         }`}
                       />
                     </div>
@@ -413,7 +413,7 @@ const EditApartmentModal = ({
                         value={formData.first_name}
                         onChange={handleChange}
                         className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm ${
-                          darkMode ? "bg-gray-900 text-gray-100" : "bg-white"
+                          darkMode ? "bg-gray-800 text-gray-100" : "bg-white"
                         }`}
                       />
                     </div>
@@ -433,7 +433,7 @@ const EditApartmentModal = ({
                         value={formData.last_name}
                         onChange={handleChange}
                         className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm ${
-                          darkMode ? "bg-gray-900 text-gray-100" : "bg-white"
+                          darkMode ? "bg-gray-800 text-gray-100" : "bg-white"
                         }`}
                       />
                     </div>
@@ -453,7 +453,7 @@ const EditApartmentModal = ({
                         value={formData.phone}
                         onChange={handleChange}
                         className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm ${
-                          darkMode ? "bg-gray-900 text-gray-100" : "bg-white"
+                          darkMode ? "bg-gray-800 text-gray-100" : "bg-white"
                         }`}
                       />
                     </div>
@@ -473,7 +473,7 @@ const EditApartmentModal = ({
                         value={formData.email}
                         onChange={handleChange}
                         className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm ${
-                          darkMode ? "bg-gray-900 text-gray-100" : "bg-white"
+                          darkMode ? "bg-gray-800 text-gray-100" : "bg-white"
                         }`}
                       />
                     </div>
@@ -511,74 +511,79 @@ const ConfirmActionModal = ({
   darkMode,
 }) => {
   return (
-    <Dialog open={isOpen} onClose={onCancel} className="relative z-10">
-      <DialogBackdrop
+<Dialog open={isOpen} onClose={onCancel} className="relative z-10">
+  <DialogBackdrop
+    transition
+    className={`fixed inset-0 ${
+      darkMode ? "bg-gray-900 bg-opacity-75" : "bg-gray-100 bg-opacity-75"
+    } transition-opacity`}
+  />
+  <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+      <DialogPanel
         transition
-        className={`fixed inset-0 ${
-          darkMode ? "bg-gray-900 bg-opacity-75" : "bg-gray-500 bg-opacity-75"
-        } transition-opacity`}
-      />
-      <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <DialogPanel
-            transition
-            className={`relative transform overflow-hidden rounded-lg ${
-              darkMode ? "bg-gray-900" : "bg-white"
-            } text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg`}
-          >
-            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-              <div className="sm:flex sm:items-start">
-                <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <ExclamationTriangleIcon
-                    className="h-6 w-6 text-red-600"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                  <DialogTitle
-                    as="h3"
-                    className={`text-base font-semibold leading-6 ${
-                      darkMode ? "text-gray-100" : "text-gray-800"
-                    }`}
-                  >
-                    {actionType === "enable"
-                      ? "Enable Apartment"
-                      : "Disable Apartment"}
-                  </DialogTitle>
-                  <div className="mt-2">
-                    <p
-                      className={`text-sm ${
-                        darkMode ? "text-gray-00" : "text-gray-500"
-                      }`}
-                    >
-                      {actionType === "enable"
-                        ? "Are you sure you want to enable this apartment?"
-                        : "Are you sure you want to disable this apartment?"}
-                    </p>
-                  </div>
-                </div>
+        className={`relative transform overflow-hidden rounded-lg ${
+          darkMode ? "bg-gray-900 text-gray-100" : "bg-white text-gray-800"
+        } shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg`}
+      >
+        <div className={`${darkMode ? "bg-gray-700" : "bg-white"} px-4 pb-4 pt-5 sm:p-6 sm:pb-4`}>
+          <div className="sm:flex sm:items-start">
+            <div className={`mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full ${darkMode ? "bg-red-900" : "bg-red-100"} sm:mx-0 sm:h-10 sm:w-10`}>
+              <ExclamationTriangleIcon
+                className="h-6 w-6 text-red-600"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+              <DialogTitle
+                as="h3"
+                className={`text-base font-semibold leading-6 ${
+                  darkMode ? "text-gray-100" : "text-gray-800"
+                }`}
+              >
+                {actionType === "enable"
+                  ? "Enable Apartment"
+                  : "Disable Apartment"}
+              </DialogTitle>
+              <div className="mt-2">
+                <p
+                  className={`text-sm ${
+                    darkMode ? "text-gray-400" : "text-gray-500"
+                  }`}
+                >
+                  {actionType === "enable"
+                    ? "Are you sure you want to enable this apartment?"
+                    : "Are you sure you want to disable this apartment?"}
+                </p>
               </div>
             </div>
-            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-              <button
-                type="button"
-                className="inline-flex w-full justify-center rounded-md bg-red-600 px-4 py-2 text-base font-medium text-gray-100 shadow-sm hover:bg-red-700 sm:ml-3 sm:w-auto sm:text-sm"
-                onClick={onConfirm}
-              >
-                {actionType === "enable" ? "Enable" : "Disable"}
-              </button>
-              <button
-                type="button"
-                className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 sm:mt-0 sm:w-auto sm:text-sm"
-                onClick={onCancel}
-              >
-                Cancel
-              </button>
-            </div>
-          </DialogPanel>
+          </div>
         </div>
-      </div>
-    </Dialog>
+        <div className={`${
+          darkMode ? "bg-gray-800" : "bg-gray-50"
+        } px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6`}>
+          <button
+            type="button"
+            className="inline-flex w-full justify-center rounded-md bg-red-600 px-4 py-2 text-base font-medium text-gray-100 shadow-sm hover:bg-red-700 sm:ml-3 sm:w-auto sm:text-sm"
+            onClick={onConfirm}
+          >
+            {actionType === "enable" ? "Enable" : "Disable"}
+          </button>
+          <button
+            type="button"
+            className={`mt-3 inline-flex w-full justify-center rounded-md border ${
+              darkMode ? "border-gray-600 bg-gray-900 text-gray-100 hover:bg-gray-700" : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+            } px-4 py-2 text-base font-medium shadow-sm sm:mt-0 sm:w-auto sm:text-sm`}
+            onClick={onCancel}
+          >
+            Cancel
+          </button>
+        </div>
+      </DialogPanel>
+    </div>
+  </div>
+</Dialog>
+
   );
 };
 

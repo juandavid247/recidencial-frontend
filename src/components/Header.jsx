@@ -128,7 +128,7 @@ const Header = ({ setSidebarOpen, setSearchQuery, darkMode, toggleTheme }) => {
             } -m-2.5 p-2.5`}
           >
             <span className="sr-only">View notifications</span>
-            <BellIcon className="h-6 w-6" aria-hidden="true" />
+            <BellIcon className="h-6 w-6 " aria-hidden="true" />
           </button>
           <div
             className={`hidden lg:block lg:h-6 lg:w-px ${
