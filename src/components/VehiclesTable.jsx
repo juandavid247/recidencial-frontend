@@ -133,8 +133,8 @@ const VehiclesTable = ({ searchQuery, darkMode = false }) => {
             <thead
               className={
                 darkMode
-                  ? "bg-gray-900 text-gray-100"
-                  : "bg-gray-50 text-gray-800"
+                  ? "bg-gray-900 text-gray-100 text-center"
+                  : "bg-gray-50 text-gray-800 text-center"
               }
             >
               <tr>

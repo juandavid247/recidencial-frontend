@@ -26,11 +26,21 @@ const ApartmentTable = ({ searchQuery, darkMode = false }) => {
       const response = await axios.get(
         "http://127.0.0.1:3333/api/v1/apartments"
       );
-      setApartments(response.data.data);
+      const cleanData = response.data.data.map((apartment) => ({
+        ...apartment,
+        apartment_number: apartment.apartment_number || "",
+        section: apartment.section || "",
+        first_name: apartment.first_name || "",
+        last_name: apartment.last_name || "",
+        phone: apartment.phone || "",
+        email: apartment.email || "",
+      }));
+      setApartments(cleanData);
     } catch (error) {
       console.error("Error fetching apartments:", error);
     }
   };
+  
 
   const handleEdit = (apartment) => {
     setEditApartment(apartment);
@@ -79,17 +89,22 @@ const ApartmentTable = ({ searchQuery, darkMode = false }) => {
     }
   };
 
-  const filteredApartments = apartments.filter(
-    (apartment) =>
-      apartment.apartment_number
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase()) ||
-      apartment.section.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      apartment.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      apartment.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      apartment.phone.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      apartment.email.toLowerCase().includes(searchQuery.toLowerCase())
+
+  const filteredApartments = apartments.filter((apartment) =>
+    (apartment.apartment_number?.toLowerCase() || "").includes(
+      searchQuery.toLowerCase()
+    ) ||
+    (apartment.section?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+    (apartment.first_name?.toLowerCase() || "").includes(
+      searchQuery.toLowerCase()
+    ) ||
+    (apartment.last_name?.toLowerCase() || "").includes(
+      searchQuery.toLowerCase()
+    ) ||
+    (apartment.phone?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+    (apartment.email?.toLowerCase() || "").includes(searchQuery.toLowerCase())
   );
+  
 
   return (
     <div
@@ -136,8 +151,8 @@ const ApartmentTable = ({ searchQuery, darkMode = false }) => {
             <thead
               className={
                 darkMode
-                  ? "bg-gray-900 text-gray-100"
-                  : "bg-gray-50 text-gray-800"
+                  ? "bg-gray-900 text-gray-100 text-center"
+                  : "bg-gray-50 text-gray-800 text-center"
               }
             >
               <tr>
